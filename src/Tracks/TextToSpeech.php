@@ -33,8 +33,9 @@ class TextToSpeech implements UriInterface
      *
      * @param string $text The text to convert
      * @param Directory $directory The directory to store the audio file in
+     * @param ProviderInterface $provider The tts provider to use
      */
-    public function __construct($text, Directory $directory, ProviderInterface $provider = null)
+    public function __construct(string $text, Directory $directory, ProviderInterface $provider = null)
     {
         if (strlen($text) > 100) {
             throw new \InvalidArgumentException("Only messages under 100 characters are supported");
@@ -74,7 +75,7 @@ class TextToSpeech implements UriInterface
      *
      * @return static
      */
-    public function setLanguage($language)
+    public function setLanguage(string $language)
     {
         $this->getProvider()->setLanguage($language);
 
