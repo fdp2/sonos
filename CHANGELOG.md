@@ -35,6 +35,7 @@ Changelog
 
 ### Added
 
+* [Network] A new DeviceCollection class can be used to manually add devices to the network.
 * [Controller] Allow the Network instance in use to be retrieved using getNetwork().
 
 ### Fixed
