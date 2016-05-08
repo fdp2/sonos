@@ -28,7 +28,7 @@ abstract class MockTest extends \PHPUnit_Framework_TestCase
     protected function getDevice()
     {
         $device = Mockery::mock("duncan3dc\Sonos\Device");
-        $device->ip = "192.168.0.66";
+        $device->shouldReceive("getIp")->andReturn("192.168.0.66");
 
         $parser = Mockery::mock("duncan3dc\DomParser\XmlParser");
         $tag = Mockery::mock("duncan3dc\DomParser\XmlParser");
