@@ -5,12 +5,12 @@ namespace duncan3dc\Sonos\Tracks;
 use duncan3dc\DomParser\XmlElement;
 use duncan3dc\Sonos\Helper;
 use duncan3dc\Sonos\Interfaces\ControllerInterface;
-use duncan3dc\Sonos\Interfaces\UriInterface;
+use duncan3dc\Sonos\Interfaces\TrackInterface;
 
 /**
  * Representation of a track.
  */
-class Track implements UriInterface
+class Track implements TrackInterface
 {
     /**
      * @var string $uri The uri of the track.
@@ -100,6 +100,60 @@ class Track implements UriInterface
 
 
     /**
+     * Get the name of the track.
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+
+    /**
+     * Get the name of the artist of the track.
+     */
+    public function getArtist(): string
+    {
+        return $this->artist;
+    }
+
+
+    /**
+     * Get the name of the album of the track.
+     */
+    public function getAlbum(): string
+    {
+        return $this->album;
+    }
+
+
+    /**
+     * Get the track number.
+     */
+    public function getNumber(): int
+    {
+        return $this->number;
+    }
+
+
+    /**
+     * @var string $albumArt The full path to the album art for this track.
+     */
+    public function getAlbumArt(): int
+    {
+        return $this->albumArt;
+    }
+
+
+    /**
+     * Get the ID of this track in the queue.
+     */
+    public function getQueueId(): string
+    {
+        return $this->id;
+    }
+
+
+    /**
      * Update the track properties using an xml element.
      *
      * @param XmlElement $xml The xml element representing the track meta data
@@ -107,7 +161,7 @@ class Track implements UriInterface
      *
      * @return self
      */
-    public static function createFromXml(XmlElement $xml, ControllerInterface $controller): UriInterface
+    public static function createFromXml(XmlElement $xml, ControllerInterface $controller): TrackInterface
     {
         $track = new static($xml->getTag("res"));
 

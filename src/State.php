@@ -4,7 +4,7 @@ namespace duncan3dc\Sonos;
 
 use duncan3dc\DomParser\XmlElement;
 use duncan3dc\Sonos\Interfaces\ControllerInterface;
-use duncan3dc\Sonos\Interfaces\UriInterface;
+use duncan3dc\Sonos\Interfaces\TrackInterface;
 use duncan3dc\Sonos\Tracks\Track;
 
 /**
@@ -48,6 +48,7 @@ class State extends Track
         parent::__construct($uri);
     }
 
+
     /**
      * Update the track properties using an xml element.
      *
@@ -56,7 +57,7 @@ class State extends Track
      *
      * @return self
      */
-    public static function createFromXml(XmlElement $xml, ControllerInterface $controller): UriInterface
+    public static function createFromXml(XmlElement $xml, ControllerInterface $controller): TrackInterface
     {
         $track = parent::createFromXml($xml, $controller);
 
